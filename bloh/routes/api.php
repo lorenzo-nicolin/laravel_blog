@@ -8,4 +8,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get("/", [PostController::class, "index"]);
+
+Route::middleware(\App\Http\Middleware\CorsMiddleware::class)->group(function () {
+    Route::get("/", [PostController::class, "index"]);
+});
