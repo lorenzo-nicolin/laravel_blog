@@ -11,4 +11,6 @@ Route::get('/user', function (Request $request) {
 
 Route::middleware(\App\Http\Middleware\CorsMiddleware::class)->group(function () {
     Route::get("/", [PostController::class, "index"]);
+    Route::post("/save", [PostController::class, "store"]);
+
 });
